@@ -1,25 +1,20 @@
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+import { reducer } from "./store/index.js";
+
+import { AddQuestionForm } from "./addQuestion/index.js";
+import { ListOfQuestions } from "./listOfQuestions/index.js";
+
 import "./App.css";
+
+const store = createStore(reducer);
 
 function App() {
   return (
-    <div>
-      <form>
-        <label htmlFor="question">Question</label>
-        <input id="question" placeholder="Can I have another donut?"></input>
-
-        <label htmlFor="askee">Askee</label>
-        <input id="askee" placeholder="Anonymous"></input>
-
-        <label htmlFor="status">Status</label>
-        <select id="status">
-          <option value="Unanswered">Unanswered</option>
-          <option value="Accepted">Accepted</option>
-          <option value="Rejected">Rejected</option>
-        </select>
-
-        <button>Save</button>
-      </form>
-    </div>
+    <Provider store={store}>
+      <AddQuestionForm />
+      <ListOfQuestions />
+    </Provider>
   );
 }
 

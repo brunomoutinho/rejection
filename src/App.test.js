@@ -1,39 +1,19 @@
-import { render, screen, within } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+
 import App from "./App";
 
-test("When the app loads, there should be an input to enter a question", () => {
+test("App renders", () => {
   render(<App />);
-  const inputElement = screen.getByLabelText(/question/i);
-  expect(inputElement).toBeInTheDocument();
 });
 
-test("When the app loads, there should be an input to enter the askee", () => {
+test("When I save a question, it should be added to a list in the page", () => {
   render(<App />);
-  const inputElement = screen.getByLabelText(/askee/i);
-  expect(inputElement).toBeInTheDocument();
-});
-
-test("When the app loads, there should be an input to select the status of the question", () => {
-  render(<App />);
-  const selectElement = screen.getByLabelText(/status/i);
-  expect(selectElement).toBeInTheDocument();
-});
-
-test("When the app loads, there should be valid options for the status of the question", () => {
-  render(<App />);
-  const selectElement = screen.getByLabelText(/status/i);
-  const unansweredElement = within(selectElement).getByText(/unanswered/i);
-  expect(unansweredElement).toBeInTheDocument();
-
-  const acceptedElement = within(selectElement).getByText(/accepted/i);
-  expect(acceptedElement).toBeInTheDocument();
-
-  const rejectedElement = within(selectElement).getByText(/rejected/i);
-  expect(rejectedElement).toBeInTheDocument();
-});
-
-test("When the app loads, there should be a button to save the question", () => {
-  render(<App />);
-  const buttonElement = screen.getByText(/save/i);
-  expect(buttonElement).toBeInTheDocument();
+  userEvent.type(
+    screen.getByLabelText(/question/i),
+    "May I have another cookie?"
+  );
+  userEvent.click(screen.getByText(/save/i));
+  const question = screen.getByText("May I have another cookie?");
+  expect(question).toBeInTheDocument();
 });
