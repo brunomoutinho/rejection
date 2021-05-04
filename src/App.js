@@ -1,17 +1,15 @@
 import { Provider } from "react-redux";
-import { createStore } from "redux";
-import { reducer } from "./store/index.js";
 
+import { Score } from "./score/index.js";
 import { AddQuestionForm } from "./addQuestion/index.js";
 import { ListOfQuestions } from "./listOfQuestions/index.js";
 
 import "./App.css";
 
-const store = createStore(reducer);
-
-function App() {
+function App({ store }) {
   return (
     <Provider store={store}>
+      <Score />
       <AddQuestionForm />
       <ListOfQuestions />
     </Provider>

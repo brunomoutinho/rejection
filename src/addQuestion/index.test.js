@@ -47,7 +47,7 @@ test("When the AddQuestionForm component loads, there should be valid options fo
 
 test("When the AddQuestionForm component loads, there should be a button to save the question", () => {
   renderApp();
-  const buttonElement = screen.getByText(/save/i);
+  const buttonElement = screen.getByRole("button", { name: /save/i });
   expect(buttonElement).toBeInTheDocument();
 });
 
