@@ -10,10 +10,6 @@ const renderApp = () => {
   render(<App store={store} />);
 };
 
-test("App renders", () => {
-  renderApp();
-});
-
 test("When I save an unanswered question, it should be added to a list in the page and score should be 0", () => {
   renderApp();
   userEvent.type(
