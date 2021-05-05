@@ -57,3 +57,21 @@ test("When I try to save the question with no fields filled, I get an error", ()
   const questionInput = screen.getByLabelText(/question/i);
   expect(questionInput).toBeInvalid();
 });
+
+test("When I fill the question fields and click on save, the form is cleared", () => {
+  renderApp();
+  const question = screen.getByLabelText(/question/i);
+  userEvent.type(question, "May I have another cookie?");
+
+  const status = screen.getByLabelText(/status/i);
+  userEvent.selectOptions(status, ["Rejected"]);
+
+  const askee = screen.getByLabelText(/askee/i);
+  userEvent.type(askee, "Darth Vader");
+
+  userEvent.click(screen.getByRole("button", { name: /save/i }));
+
+  expect(question).toHaveValue("");
+  expect(status).toHaveValue("Unanswered");
+  expect(askee).toHaveValue("");
+});

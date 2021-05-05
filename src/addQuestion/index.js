@@ -23,6 +23,9 @@ let AddQuestionForm = ({ onSave }) => {
       status,
     });
     onSave(newQuestion);
+    setQuestion("");
+    setAskee("");
+    setStatus("Unanswered");
   };
   return (
     <div>
