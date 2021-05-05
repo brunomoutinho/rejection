@@ -10,7 +10,7 @@ const renderApp = () => {
   render(<App store={store} />);
 };
 
-test("When I save an unanswered question, it should be added to a list in the page and score should be 0", () => {
+test("When I save an unanswered question, it should be added to a list in the page, score should be 0, and current streak should be 0", () => {
   renderApp();
   userEvent.type(
     screen.getByLabelText(/question/i),
@@ -23,9 +23,12 @@ test("When I save an unanswered question, it should be added to a list in the pa
 
   const score = screen.getByText(/score/i).textContent;
   expect(score).toBe("Score: 0");
+
+  const currentStreak = screen.getByText(/current streak/i).textContent;
+  expect(currentStreak).toBe("Current Streak: 0");
 });
 
-test("When I save an accepted question, it should be added to a list in the page and score should be 1", () => {
+test("When I save an accepted question, it should be added to a list in the page, score should be 1, and current streak should be 0", () => {
   renderApp();
   userEvent.type(
     screen.getByLabelText(/question/i),
@@ -39,9 +42,12 @@ test("When I save an accepted question, it should be added to a list in the page
 
   const score = screen.getByText(/score/i).textContent;
   expect(score).toBe("Score: 1");
+
+  const currentStreak = screen.getByText(/current streak/i).textContent;
+  expect(currentStreak).toBe("Current Streak: 0");
 });
 
-test("When I save a rejected question, it should be added to a list in the page and score should be 10", () => {
+test("When I save a rejected question, it should be added to a list in the page, score should be 10, and current streak should be 1", () => {
   renderApp();
   userEvent.type(
     screen.getByLabelText(/question/i),
@@ -55,4 +61,7 @@ test("When I save a rejected question, it should be added to a list in the page 
 
   const score = screen.getByText(/score/i).textContent;
   expect(score).toBe("Score: 10");
+
+  const currentStreak = screen.getByText(/current streak/i).textContent;
+  expect(currentStreak).toBe("Current Streak: 1");
 });
