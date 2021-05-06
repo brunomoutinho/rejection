@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import { getQuestionsList } from "../store/index.js";
 import { acceptQuestion, rejectQuestion } from "../store/question.js";
 
-import "./index.css"
+import "./index.css";
 export const Question = ({
   onAccept,
   onReject,
@@ -52,8 +52,7 @@ let ListOfQuestions = ({
         ))
       ) : (
         <span>There are no questions yet.</span>
-      )
-    }
+      )}
     </div>
   );
 };
