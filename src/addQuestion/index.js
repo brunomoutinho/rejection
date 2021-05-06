@@ -21,7 +21,7 @@ let AddQuestionForm = ({ onSave, positionClass }) => {
     event.preventDefault();
     const newQuestion = questionFactory({
       question,
-      askee,
+      askee: askee.length > 0 ? askee : undefined,
       status,
     });
     onSave(newQuestion);

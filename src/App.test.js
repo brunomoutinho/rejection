@@ -18,8 +18,14 @@ test("When I save an unanswered question, it should be added to a list in the pa
   );
   userEvent.click(screen.getByRole("button", { name: /save/i }));
 
-  const question = screen.getByText("May I have another cookie?");
+  const question = screen.getByText("Question: May I have another cookie?");
   expect(question).toBeInTheDocument();
+
+  const askee = screen.getByText("Askee: Anonymous");
+  expect(askee).toBeInTheDocument();
+
+  const status = screen.getByText("Status: Unanswered");
+  expect(status).toBeInTheDocument();
 
   const score = screen.getByText(/score/i).textContent;
   expect(score).toBe("Score: 0");
@@ -37,8 +43,14 @@ test("When I save an accepted question, it should be added to a list in the page
   userEvent.selectOptions(screen.getByLabelText(/status/i), ["Accepted"]);
   userEvent.click(screen.getByRole("button", { name: /save/i }));
 
-  const question = screen.getByText("May I have another cookie?");
+  const question = screen.getByText("Question: May I have another cookie?");
   expect(question).toBeInTheDocument();
+
+  const askee = screen.getByText("Askee: Anonymous");
+  expect(askee).toBeInTheDocument();
+
+  const status = screen.getByText("Status: Accepted");
+  expect(status).toBeInTheDocument();
 
   const score = screen.getByText(/score/i).textContent;
   expect(score).toBe("Score: 1");
@@ -53,11 +65,18 @@ test("When I save a rejected question, it should be added to a list in the page,
     screen.getByLabelText(/question/i),
     "May I have another cookie?"
   );
+  userEvent.type(screen.getByLabelText(/askee/i), "Darth Vader");
   userEvent.selectOptions(screen.getByLabelText(/status/i), ["Rejected"]);
   userEvent.click(screen.getByRole("button", { name: /save/i }));
 
-  const question = screen.getByText("May I have another cookie?");
+  const question = screen.getByText("Question: May I have another cookie?");
   expect(question).toBeInTheDocument();
+
+  const askee = screen.getByText("Askee: Darth Vader");
+  expect(askee).toBeInTheDocument();
+
+  const status = screen.getByText("Status: Rejected");
+  expect(status).toBeInTheDocument();
 
   const score = screen.getByText(/score/i).textContent;
   expect(score).toBe("Score: 10");

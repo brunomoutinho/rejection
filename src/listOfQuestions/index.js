@@ -7,10 +7,14 @@ const Question = ({ question: { question, askee, status } = {} }) => {
   return (
     <div className={"list-of-questions__question"}>
       <span className={"list-of-questions__question__question"}>
-        {question}
+        Question: {question}
       </span>
-      <span className={"list-of-questions__question__askee"}>{askee}</span>
-      <span className={"list-of-questions__question__status"}>{status}</span>
+      <span className={"list-of-questions__question__askee"}>
+        Askee: {askee}
+      </span>
+      <span className={"list-of-questions__question__status"}>
+        Status: {status}
+      </span>
     </div>
   );
 };
