@@ -19,3 +19,8 @@ export const questionFactory = ({
   askee,
   status,
 });
+
+export const formatQuestion = ({ timestamp, ...rest }) => ({
+  ...rest,
+  timestamp: new Date(timestamp),
+});
