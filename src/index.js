@@ -5,8 +5,12 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { createStore } from "redux";
 import { reducer } from "./store/index.js";
+import { getSavedState, saveState } from "./storage/index.js";
+import throttle from "lodash/throttle";
 
-const store = createStore(reducer);
+const savedState = getSavedState();
+const store = createStore(reducer, savedState);
+store.subscribe(throttle(() => saveState(store.getState()), 1000));
 
 ReactDOM.render(
   <React.StrictMode>
