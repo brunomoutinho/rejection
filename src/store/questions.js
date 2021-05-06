@@ -35,6 +35,7 @@ export const calculateScore = (state) => {
   );
 };
 export const calculateCurrentStreak = (state) => {
+  // eslint-disable-next-line no-unused-vars
   const [_, streak] = Object.values(state)
     .filter(filter.byStatus("Rejected"))
     .sort(sort.byTimestamp)
