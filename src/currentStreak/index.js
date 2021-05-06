@@ -1,8 +1,8 @@
 import { connect } from "react-redux";
 import { getCurrentStreak } from "../store/index.js";
 
-let CurrentStreak = ({ currentStreak }) => (
-  <p>Current Streak: {currentStreak}</p>
+let CurrentStreak = ({ currentStreak, positionClass }) => (
+  <p className={positionClass}>Current Streak: {currentStreak}</p>
 );
 
 const mapStateToProps = (state) => ({

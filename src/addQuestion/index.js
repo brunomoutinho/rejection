@@ -3,7 +3,9 @@ import { connect } from "react-redux";
 import { createQuestion } from "../store/question.js";
 import { questionFactory } from "../question.js";
 
-let AddQuestionForm = ({ onSave }) => {
+import "./index.css";
+
+let AddQuestionForm = ({ onSave, positionClass }) => {
   const [question, setQuestion] = useState("");
   const [askee, setAskee] = useState("");
   const [status, setStatus] = useState("Unanswered");
@@ -28,33 +30,56 @@ let AddQuestionForm = ({ onSave }) => {
     setStatus("Unanswered");
   };
   return (
-    <div>
-      <form onSubmit={onSubmit}>
-        <label htmlFor="question">Question</label>
-        <input
-          id="question"
-          onChange={onChangeQuestion}
-          placeholder="Can I have another donut?"
-          required
-          value={question}
-        ></input>
+    <div className={positionClass}>
+      <form className={"form"} onSubmit={onSubmit}>
+        <section className={"question"}>
+          <label className={"question__label"} htmlFor="question">
+            Question
+          </label>
+          <input
+            className={"question__input"}
+            id="question"
+            onChange={onChangeQuestion}
+            placeholder="Can I have another donut?"
+            required
+            value={question}
+          ></input>
+        </section>
 
-        <label htmlFor="askee">Askee</label>
-        <input
-          id="askee"
-          onChange={onChangeAskee}
-          placeholder="Anonymous"
-          value={askee}
-        ></input>
+        <section className={"askee"}>
+          <label className={"askee__label"} htmlFor="askee">
+            Askee
+          </label>
+          <input
+            className={"askee__input"}
+            id="askee"
+            onChange={onChangeAskee}
+            placeholder="Anonymous"
+            value={askee}
+          ></input>
+        </section>
 
-        <label htmlFor="status">Status</label>
-        <select id="status" onChange={onChangeStatus} value={status}>
-          <option value="Unanswered">Unanswered</option>
-          <option value="Accepted">Accepted</option>
-          <option value="Rejected">Rejected</option>
-        </select>
+        <section className={"status-save-container"}>
+          <section className={"status"}>
+            <label className={"status__label"} htmlFor="status">
+              Status
+            </label>
+            <select
+              className={"status__select"}
+              id="status"
+              onChange={onChangeStatus}
+              value={status}
+            >
+              <option value="Unanswered">Unanswered</option>
+              <option value="Accepted">Accepted</option>
+              <option value="Rejected">Rejected</option>
+            </select>
+          </section>
 
-        <button>Save</button>
+          <section className={"save"}>
+            <button className={"save__button"}>Save</button>
+          </section>
+        </section>
       </form>
     </div>
   );

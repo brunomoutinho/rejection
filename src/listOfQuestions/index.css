@@ -1,0 +1,25 @@
+.list-of-questions {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+}
+
+.list-of-questions__question {
+  display: grid;
+  grid-template:
+    "question status"
+    "askee status";
+}
+
+.list-of-questions__question__question {
+  grid-area: question;
+}
+
+.list-of-questions__question__askee {
+  grid-area: askee;
+}
+
+.list-of-questions__question__status {
+  grid-area: status;
+  text-align: right;
+}
