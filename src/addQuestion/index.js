@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { connect } from 'react-redux';
 import { createQuestion } from '../store/question.js';
-import { questionFactory } from '../question.js';
 
 import './index.css';
 
@@ -19,12 +18,7 @@ let AddQuestionForm = ({ onSave, positionClass }) => {
 
 	const onSubmit = (event) => {
 		event.preventDefault();
-		const newQuestion = questionFactory({
-			question,
-			askee: askee.length > 0 ? askee : undefined,
-			status,
-		});
-		onSave(newQuestion);
+		onSave({ question, askee, status });
 		setQuestion('');
 		setAskee('');
 		setStatus('Unanswered');
