@@ -4,3 +4,7 @@ button,
 select {
 	font-size: 18px;
 }
+
+div {
+	box-sizing: border-box;
+}

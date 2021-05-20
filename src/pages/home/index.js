@@ -2,8 +2,7 @@ import compose from 'lodash/fp/compose';
 import { PageHOC } from '../pageHOC.js';
 import { AddQuestionForm } from '../../components/addQuestion/index.js';
 import { ListOfQuestions } from '../../components/listOfQuestions/index.js';
-import { Score } from '../../components/score/index.js';
-import { CurrentStreak } from '../../components/currentStreak/index.js';
+import { ScoreBoard } from '../../components/scoreBoard/index.js';
 
 import './index.css';
 
@@ -14,8 +13,7 @@ let Home = () => (
 		</header>
 		<AddQuestionForm positionClass={'form'} />
 		<ListOfQuestions positionClass={'list'} />
-		<Score positionClass={'score'} />
-		<CurrentStreak positionClass={'streak'} />
+		<ScoreBoard positionClass={'scoreBoard'} />
 	</div>
 );
 
