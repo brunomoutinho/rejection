@@ -13,7 +13,7 @@ let Home = () => (
 		</header>
 		<AddQuestionForm positionClass={'form'} />
 		<ListOfQuestions positionClass={'list'} />
-		<ScoreBoard positionClass={'scoreBoard'} />
+		<ScoreBoard positionClass={'score-board'} />
 	</div>
 );
 
