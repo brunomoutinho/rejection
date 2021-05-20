@@ -1,27 +1,17 @@
-import { useState } from 'react';
 import { connect } from 'react-redux';
 import { createQuestion } from '../../store/question.js';
 
 import './index.css';
 
 let AddQuestionForm = ({ onSave, positionClass }) => {
-	const [question, setQuestion] = useState('');
-	const [askee, setAskee] = useState('');
-	const [status, setStatus] = useState('Unanswered');
-
-	const onChangeQuestion = ({ target: { value = '' } = {} } = {}) =>
-		setQuestion(value);
-	const onChangeAskee = ({ target: { value = '' } = {} } = {}) =>
-		setAskee(value);
-	const onChangeStatus = ({ target: { value = '' } = {} } = {}) =>
-		setStatus(value);
-
 	const onSubmit = (event) => {
 		event.preventDefault();
+		const {
+			question: { value: question },
+			askee: { value: askee },
+			status: { value: status },
+		} = event.target;
 		onSave({ question, askee, status });
-		setQuestion('');
-		setAskee('');
-		setStatus('Unanswered');
 	};
 	return (
 		<div className={positionClass}>
@@ -33,10 +23,8 @@ let AddQuestionForm = ({ onSave, positionClass }) => {
 					<input
 						className={'question__input'}
 						id="question"
-						onChange={onChangeQuestion}
 						placeholder="Can I have another donut?"
 						required
-						value={question}
 					></input>
 				</section>
 
@@ -47,9 +35,7 @@ let AddQuestionForm = ({ onSave, positionClass }) => {
 					<input
 						className={'askee__input'}
 						id="askee"
-						onChange={onChangeAskee}
 						placeholder="Anonymous"
-						value={askee}
 					></input>
 				</section>
 
@@ -58,12 +44,7 @@ let AddQuestionForm = ({ onSave, positionClass }) => {
 						<label className={'status__label'} htmlFor="status">
 							Status
 						</label>
-						<select
-							className={'status__select'}
-							id="status"
-							onChange={onChangeStatus}
-							value={status}
-						>
+						<select className={'status__select'} id="status">
 							<option value="Unanswered">Unanswered</option>
 							<option value="Accepted">Accepted</option>
 							<option value="Rejected">Rejected</option>
