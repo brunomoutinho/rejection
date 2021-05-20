@@ -1,9 +1,9 @@
 import compose from 'lodash/fp/compose';
 import { PageHOC } from '../pageHOC.js';
-import { AddQuestionForm } from '../../addQuestion/index.js';
-import { ListOfQuestions } from '../../listOfQuestions/index.js';
-import { Score } from '../../score/index.js';
-import { CurrentStreak } from '../../currentStreak/index.js';
+import { AddQuestionForm } from '../../components/addQuestion/index.js';
+import { ListOfQuestions } from '../../components/listOfQuestions/index.js';
+import { Score } from '../../components/score/index.js';
+import { CurrentStreak } from '../../components/currentStreak/index.js';
 
 import './index.css';
 

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getScore } from '../store/index.js';
+import { getScore } from '../../store/index.js';
 
 let Score = ({ score, positionClass }) => (
 	<p className={positionClass}>Score: {score}</p>

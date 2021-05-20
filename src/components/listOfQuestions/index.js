@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { getQuestionsList } from '../store/index.js';
-import { acceptQuestion, rejectQuestion } from '../store/question.js';
+import { getQuestionsList } from '../../store/index.js';
+import { acceptQuestion, rejectQuestion } from '../../store/question.js';
 
 import './index.css';
 export const Question = ({

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { connect } from 'react-redux';
-import { createQuestion } from '../store/question.js';
+import { createQuestion } from '../../store/question.js';
 
 import './index.css';
 

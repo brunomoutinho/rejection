@@ -1,6 +1,6 @@
 import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { questionFactory } from '../question.js';
+import { questionFactory } from '../../question.js';
 import { Question } from './index.js';
 import { validateQuestionDisplay } from './validations.js';
 
