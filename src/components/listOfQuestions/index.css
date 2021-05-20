@@ -1,11 +1,14 @@
 .list-of-questions {
-  display: flex;
-  flex-direction: column;
-  justify-content: stretch;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	justify-content: stretch;
 }
 
 .list-of-questions__question {
-  display: flex;
-  flex-direction: column;
-  justify-content: stretch;
+	background-color: whitesmoke;
+	display: flex;
+	flex-direction: column;
+	justify-content: stretch;
+	padding: 5px 10px;
 }

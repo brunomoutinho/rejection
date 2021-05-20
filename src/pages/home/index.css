@@ -27,7 +27,7 @@
 
 .list {
 	grid-area: list;
-	overflow: hidden;
+	overflow: scroll;
 }
 
 .score-board {
