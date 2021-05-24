@@ -1,5 +1,5 @@
 import compose from 'lodash/fp/compose';
-import { PageHOC } from './pageHOC.js';
+import { PageHOC } from '../pageHOC.js';
 import { AddQuestionForm } from '../components/addQuestion/index.js';
 import { ListOfQuestions } from '../components/listOfQuestions/index.js';
 import { ScoreBoard } from '../components/scoreBoard/index.js';
