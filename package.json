@@ -19,7 +19,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "CI= next build",
     "start": "next start",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
