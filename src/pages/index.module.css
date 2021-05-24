@@ -1,4 +1,4 @@
-.rejection-app-container {
+.container {
 	display: grid;
 	gap: 20px;
 	grid-template:
@@ -14,7 +14,7 @@
 	grid-area: header;
 }
 
-.header__title {
+.headerTitle {
 	line-height: 50px;
 	margin: 0;
 	padding: 0;
@@ -30,6 +30,6 @@
 	overflow: scroll;
 }
 
-.score-board {
+.scoreBoard {
 	grid-area: score-board;
 }

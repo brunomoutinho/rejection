@@ -2,26 +2,18 @@ import { connect } from 'react-redux';
 import { getQuestionsList } from '../../store/index.js';
 import { acceptQuestion, rejectQuestion } from '../../store/question.js';
 
-import './index.css';
+import styles from './index.module.css';
+
 export const Question = ({
 	onAccept,
 	onReject,
 	question: { question, askee, status, id } = {},
 }) => {
 	return (
-		<div
-			className={'list-of-questions__question'}
-			data-testid={`question-${id}`}
-		>
-			<span className={'list-of-questions__question__question'}>
-				Question: {question}
-			</span>
-			<span className={'list-of-questions__question__askee'}>
-				Askee: {askee}
-			</span>
-			<span className={'list-of-questions__question__status'}>
-				Status: {status}
-			</span>
+		<div className={styles.question} data-testid={`question-${id}`}>
+			<span>Question: {question}</span>
+			<span>Askee: {askee}</span>
+			<span>Status: {status}</span>
 			{status === 'Unanswered' ? (
 				<section>
 					Modify status:
@@ -40,7 +32,7 @@ let ListOfQuestions = ({
 	onReject,
 }) => {
 	return (
-		<div className={`${positionClass} list-of-questions`}>
+		<div className={`${positionClass} ${styles.listOfQuestions}`}>
 			{Array.isArray(questions) && questions.length > 0 ? (
 				questions.map((question) => (
 					<Question

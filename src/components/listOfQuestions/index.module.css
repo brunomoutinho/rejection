@@ -1,11 +1,11 @@
-.list-of-questions {
+.listOfQuestions {
 	display: flex;
 	flex-direction: column;
 	gap: 5px;
 	justify-content: stretch;
 }
 
-.list-of-questions__question {
+.question {
 	background-color: whitesmoke;
 	display: flex;
 	flex-direction: column;

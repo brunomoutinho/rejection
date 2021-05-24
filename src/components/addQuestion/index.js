@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { createQuestion } from '../../store/question.js';
 
-import './index.css';
+import styles from './index.module.css';
 
 let AddQuestionForm = ({ onSave, positionClass }) => {
 	const onSubmit = (event) => {
@@ -15,44 +15,44 @@ let AddQuestionForm = ({ onSave, positionClass }) => {
 	};
 	return (
 		<div className={positionClass}>
-			<form className={'form'} onSubmit={onSubmit}>
-				<section className={'question'}>
-					<label className={'question__label'} htmlFor="question">
+			<form className={styles.form} onSubmit={onSubmit}>
+				<section className={styles.question}>
+					<label className={styles.questionLabel} htmlFor="question">
 						Question
 					</label>
 					<input
-						className={'question__input'}
+						className={styles.questionInput}
 						id="question"
 						placeholder="Can I have another donut?"
 						required
 					></input>
 				</section>
 
-				<section className={'askee'}>
-					<label className={'askee__label'} htmlFor="askee">
+				<section className={styles.askee}>
+					<label className={styles.askeeLabel} htmlFor="askee">
 						Askee
 					</label>
 					<input
-						className={'askee__input'}
+						className={styles.askeeInput}
 						id="askee"
 						placeholder="Anonymous"
 					></input>
 				</section>
 
-				<section className={'status-save-container'}>
-					<section className={'status'}>
-						<label className={'status__label'} htmlFor="status">
+				<section className={styles.statusSaveContainer}>
+					<section className={styles.status}>
+						<label className={styles.statusLabel} htmlFor="status">
 							Status
 						</label>
-						<select className={'status__select'} id="status">
+						<select className={styles.statusSelect} id="status">
 							<option value="Unanswered">Unanswered</option>
 							<option value="Accepted">Accepted</option>
 							<option value="Rejected">Rejected</option>
 						</select>
 					</section>
 
-					<section className={'save'}>
-						<button className={'save__button'}>Save</button>
+					<section className={styles.save}>
+						<button className={styles.saveButton}>Save</button>
 					</section>
 				</section>
 			</form>
