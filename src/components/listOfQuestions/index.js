@@ -13,7 +13,7 @@ let ListOfQuestions = ({
 }) => {
   return (
     <div className={`${positionClass} ${styles.listOfQuestions}`}>
-      {Array.isArray(questions) && questions.length > 0 ? (
+      {questions.length > 0 ? (
         questions.map(question => (
           <Question
             key={question.id}
