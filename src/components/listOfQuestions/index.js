@@ -8,8 +8,8 @@ import styles from './index.module.css';
 let ListOfQuestions = ({
   questions = [],
   positionClass,
-  onAccept,
-  onReject
+  acceptQuestion,
+  rejectQuestion
 }) => {
   return (
     <div className={`${positionClass} ${styles.listOfQuestions}`}>
@@ -17,8 +17,8 @@ let ListOfQuestions = ({
         questions.map(question => (
           <Question
             key={question.id}
-            onAccept={onAccept}
-            onReject={onReject}
+            acceptQuestion={acceptQuestion}
+            rejectQuestion={rejectQuestion}
             question={question}
           />
         ))
@@ -34,8 +34,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  onAccept: acceptQuestion,
-  onReject: rejectQuestion
+  acceptQuestion,
+  rejectQuestion
 };
 
 ListOfQuestions = connect(
