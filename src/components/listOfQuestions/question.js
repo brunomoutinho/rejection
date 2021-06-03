@@ -1,3 +1,5 @@
+import styles from './index.module.css';
+
 export const Question = ({
   acceptQuestion,
   rejectQuestion,
