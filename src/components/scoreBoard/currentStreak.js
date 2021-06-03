@@ -1,3 +1,5 @@
-export const CurrentStreak = ({ currentStreak }) => (
-	<span>Current Streak: {currentStreak}</span>
+import React from 'react';
+
+export const CurrentStreak = ({ currentStreak = 0 } = {}) => (
+  <span>Current Streak: {currentStreak}</span>
 );

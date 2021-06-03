@@ -1,12 +1,14 @@
+import React from 'react';
+
 import styles from './index.module.css';
 
 export const Question = ({
   acceptQuestion,
   rejectQuestion,
-  question: { question, askee, status, id } = {}
+  question: { question = '', askee = '', status = '', id = '' } = {},
 }) => {
   return (
-    <div className={styles.question} data-testid={`question-${id}`}>
+    <div className={styles.question}>
       <span>Question: {question}</span>
       <span>Askee: {askee}</span>
       <span>Status: {status}</span>
