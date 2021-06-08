@@ -6,11 +6,11 @@ import throttle from 'lodash/throttle';
 let store;
 
 export const configure = () => {
-	if (!store) {
-		const savedState = getSavedState();
-		store = createStore(reducer, savedState);
-		store.subscribe(throttle(() => saveState(store.getState()), 1000));
-	}
+  if (!store) {
+    const savedState = getSavedState();
+    store = createStore(reducer, savedState);
+    store.subscribe(throttle(() => saveState(store.getState()), 1000));
+  }
 
-	return store;
+  return store;
 };
