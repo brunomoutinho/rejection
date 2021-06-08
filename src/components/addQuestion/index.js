@@ -1,3 +1,4 @@
+import React from 'react';
 import { connect } from 'react-redux';
 import { createQuestion } from '../../store/question.js';
 
