@@ -150,7 +150,7 @@ test('When I have only a rejected question, and it is from today, current streak
   expect(actual).toBe(expected);
 });
 
-test('When I have two rejected questions, one from today, the other from yesterday, current streak should be 1,', () => {
+test('When I have two rejected questions, one from today, the other from yesterday, current streak should be 2', () => {
   const yesterday = add(
     set(new Date(), {
       hours: 0,
