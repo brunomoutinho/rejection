@@ -1,18 +1,18 @@
-import React from 'react';
-import { Question } from './question.js';
+import React from "react";
+import { Question } from "./question.js";
 
-import styles from './index.module.css';
+import styles from "./index.module.css";
 
 export const ListOfQuestions = ({
   questions = [],
   positionClass,
   acceptQuestion,
-  rejectQuestion
+  rejectQuestion,
 }) => {
   return (
     <div className={`${positionClass} ${styles.listOfQuestions}`}>
       {questions.length > 0 ? (
-        questions.map(question => (
+        questions.map((question) => (
           <Question
             key={question.id}
             acceptQuestion={acceptQuestion}

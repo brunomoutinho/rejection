@@ -1,41 +1,24 @@
-import pipe from 'lodash/fp/pipe';
 import { add, set } from 'date-fns';
 
-import {
-  reducer,
-  getCurrentStreak,
-  getQuestionsList,
-  getQuestionById,
-  getScore
-} from './index';
+import { reducer, getCurrentStreak, getQuestionsList, getScore } from './index';
 import { createQuestion, rejectQuestion, acceptQuestion } from './question';
 
-test('Default application state is an object', () => {
-  const actual = typeof reducer();
-  const expected = 'object';
+const generateStoreState = ({ questions = {} } = {}) => ({
+  questions,
+});
 
-  expect(actual).toBe(expected);
+test('Default application state is an object', () => {
+  const actual = reducer();
+  const expected = generateStoreState();
+
+  expect(actual).toStrictEqual(expected);
 });
 
 test('When I create a question, it is added to the state', () => {
   const action = createQuestion();
 
-  const actual = pipe(
-    () => getQuestionsList(reducer(undefined, action)),
-    questions =>
-      questions.map(question => ({
-        ...question,
-        id: !!question.id,
-        timestamp: !!question.timestamp
-      }))
-  )();
-  const expected = [
-    {
-      ...action.payload,
-      id: true,
-      timestamp: true
-    }
-  ];
+  const actual = getQuestionsList(reducer(undefined, action));
+  const expected = [action.payload];
 
   expect(actual).toEqual(expected);
 });
@@ -44,16 +27,16 @@ test('When I mark a question as Rejected, the question is updated in the state',
   const createQuestionAction = createQuestion();
   const actions = [
     createQuestionAction,
-    rejectQuestion(createQuestionAction.payload.id)
+    rejectQuestion(createQuestionAction.payload.id),
   ];
 
-  const actual = getQuestionById(actions.reduce(reducer, undefined))(
-    createQuestionAction.payload.id
-  );
-  const expected = {
-    ...createQuestionAction.payload,
-    status: 'Rejected'
-  };
+  const actual = getQuestionsList(actions.reduce(reducer, undefined));
+  const expected = [
+    {
+      ...createQuestionAction.payload,
+      status: 'Rejected',
+    },
+  ];
 
   expect(actual).toEqual(expected);
 });
@@ -62,16 +45,16 @@ test('When I mark a question as Accepted, the question is updated in the state',
   const createQuestionAction = createQuestion();
   const actions = [
     createQuestionAction,
-    acceptQuestion(createQuestionAction.payload.id)
+    acceptQuestion(createQuestionAction.payload.id),
   ];
 
-  const actual = getQuestionById(actions.reduce(reducer, undefined))(
-    createQuestionAction.payload.id
-  );
-  const expected = {
-    ...createQuestionAction.payload,
-    status: 'Accepted'
-  };
+  const actual = getQuestionsList(actions.reduce(reducer, undefined));
+  const expected = [
+    {
+      ...createQuestionAction.payload,
+      status: 'Accepted',
+    },
+  ];
 
   expect(actual).toEqual(expected);
 });
@@ -107,7 +90,7 @@ test('When I have multiple questions with different statuses, score gets calcula
   const actions = [
     createQuestion({ status: 'Unanswered' }),
     createQuestion({ status: 'Accepted' }),
-    createQuestion({ status: 'Rejected' })
+    createQuestion({ status: 'Rejected' }),
   ];
 
   const actual = getScore(actions.reduce(reducer, undefined));
@@ -146,12 +129,12 @@ test('When I have only a rejected question, but it is from a day before today, c
       hours: 0,
       minutes: 0,
       seconds: 0,
-      milliseconds: 0
+      milliseconds: 0,
     }),
     { days: -1 }
   );
   const actions = [
-    createQuestion({ status: 'Rejected', timestamp: yesterday })
+    createQuestion({ status: 'Rejected', timestamp: yesterday }),
   ];
   const actual = getCurrentStreak(actions.reduce(reducer, undefined));
   const expected = 0;
@@ -173,13 +156,13 @@ test('When I have two rejected questions, one from today, the other from yesterd
       hours: 0,
       minutes: 0,
       seconds: 0,
-      milliseconds: 0
+      milliseconds: 0,
     }),
     { days: -1 }
   );
   const actions = [
     createQuestion({ status: 'Rejected', timestamp: yesterday }),
-    createQuestion({ status: 'Rejected' })
+    createQuestion({ status: 'Rejected' }),
   ];
   const actual = getCurrentStreak(actions.reduce(reducer, undefined));
   const expected = 2;
@@ -193,13 +176,13 @@ test('When I have two rejected questions, one from today, the other from the day
       hours: 0,
       minutes: 0,
       seconds: 0,
-      milliseconds: 0
+      milliseconds: 0,
     }),
     { days: -2 }
   );
   const actions = [
     createQuestion({ status: 'Rejected', timestamp: dayBeforeYesterday }),
-    createQuestion({ status: 'Rejected' })
+    createQuestion({ status: 'Rejected' }),
   ];
   const actual = getCurrentStreak(actions.reduce(reducer, undefined));
   const expected = 1;

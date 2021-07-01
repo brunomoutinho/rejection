@@ -1,14 +1,14 @@
-import cuid from 'cuid';
-import { set } from 'date-fns';
+import cuid from "cuid";
+import { set } from "date-fns";
 
 export const reducer = (state, action) => {
   switch (action.type) {
     case createQuestion.type:
       return { ...action.payload };
     case rejectQuestion.type:
-      return { ...state, status: 'Rejected' };
+      return { ...state, status: "Rejected" };
     case acceptQuestion.type:
-      return { ...state, status: 'Accepted' };
+      return { ...state, status: "Accepted" };
     default:
       return state;
   }
@@ -20,11 +20,11 @@ export const createQuestion = ({
     hours: 0,
     minutes: 0,
     seconds: 0,
-    milliseconds: 0
+    milliseconds: 0,
   }),
-  question = 'Placeholder question',
-  askee = 'Anonymous',
-  status = 'Unanswered'
+  question = "Placeholder question",
+  askee = "Anonymous",
+  status = "Unanswered",
 } = {}) => ({
   type: createQuestion.type,
   payload: {
@@ -32,22 +32,22 @@ export const createQuestion = ({
     timestamp,
     question,
     askee,
-    status
-  }
+    status,
+  },
 });
-createQuestion.type = 'CREATE_QUESTION';
+createQuestion.type = "CREATE_QUESTION";
 
-export const rejectQuestion = id => ({
+export const rejectQuestion = (id) => ({
   type: rejectQuestion.type,
-  payload: { id }
+  payload: { id },
 });
-rejectQuestion.type = 'REJECT_QUESTION';
+rejectQuestion.type = "REJECT_QUESTION";
 
-export const acceptQuestion = id => ({
+export const acceptQuestion = (id) => ({
   type: acceptQuestion.type,
-  payload: { id }
+  payload: { id },
 });
-acceptQuestion.type = 'ACCEPT_QUESTION';
+acceptQuestion.type = "ACCEPT_QUESTION";
 
-export const getQuestionScore = question =>
-  question.status === 'Rejected' ? 10 : question.status === 'Accepted' ? 1 : 0;
+export const getQuestionScore = (question) =>
+  question.status === "Rejected" ? 10 : question.status === "Accepted" ? 1 : 0;

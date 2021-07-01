@@ -1,6 +1,6 @@
-import { getSavedState } from './index.js';
+import { getSavedState } from "./index.js";
 
-test('I get undefined if nothing has been saved into the local storage', () => {
+test("I get undefined if nothing has been saved into the local storage", () => {
   const actual = getSavedState();
   const expected = undefined;
 

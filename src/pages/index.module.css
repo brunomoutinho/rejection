@@ -1,35 +1,35 @@
 .container {
-	display: grid;
-	gap: 20px;
-	grid-template:
-		'header' 50px
-		'form' 170px
-		'list' auto
-		'score-board' 50px;
-	height: 100vh;
-	padding: 10px;
+  display: grid;
+  gap: 20px;
+  grid-template:
+    "header" 50px
+    "form" 170px
+    "list" auto
+    "score-board" 50px;
+  height: 100vh;
+  padding: 10px;
 }
 
 .header {
-	grid-area: header;
+  grid-area: header;
 }
 
 .headerTitle {
-	line-height: 50px;
-	margin: 0;
-	padding: 0;
-	text-align: center;
+  line-height: 50px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
 }
 
 .form {
-	grid-area: form;
+  grid-area: form;
 }
 
 .list {
-	grid-area: list;
-	overflow: scroll;
+  grid-area: list;
+  overflow: scroll;
 }
 
 .scoreBoard {
-	grid-area: score-board;
+  grid-area: score-board;
 }

@@ -1,7 +1,7 @@
-import { createStore } from 'redux';
-import { reducer } from './index.js';
-import { getSavedState, saveState } from '../storage/index.js';
-import throttle from 'lodash/throttle';
+import { createStore } from "redux";
+import { reducer } from "./index.js";
+import { getSavedState, saveState } from "../storage/index.js";
+import throttle from "lodash/throttle";
 
 let store;
 

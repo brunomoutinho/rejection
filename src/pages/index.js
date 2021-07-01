@@ -1,11 +1,11 @@
-import React from 'react';
-import compose from 'lodash/fp/compose';
-import { PageHOC } from '../pageHOC.js';
-import { AddQuestionForm } from '../components/addQuestion/index.js';
-import { ListOfQuestions } from '../components/listOfQuestions/index.js';
-import { ScoreBoard } from '../components/scoreBoard/index.js';
+import React from "react";
+import compose from "lodash/fp/compose";
+import { PageHOC } from "../pageHOC.js";
+import { AddQuestionForm } from "../components/addQuestion/index.js";
+import { ListOfQuestions } from "../components/listOfQuestions/index.js";
+import { ScoreBoard } from "../components/scoreBoard/index.js";
 
-import styles from './index.module.css';
+import styles from "./index.module.css";
 
 let Home = () => (
   <div className={styles.container}>

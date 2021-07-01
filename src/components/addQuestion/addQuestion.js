@@ -1,14 +1,14 @@
-import React from 'react';
+import React from "react";
 
-import styles from './index.module.css';
+import styles from "./index.module.css";
 
 export const AddQuestionForm = ({ createQuestion, positionClass }) => {
-  const onSubmit = event => {
+  const onSubmit = (event) => {
     event.preventDefault();
     const {
       question: { value: question },
       askee: { value: askee },
-      status: { value: status }
+      status: { value: status },
     } = event.target;
     createQuestion({ question, askee, status });
   };
