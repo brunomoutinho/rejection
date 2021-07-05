@@ -1,0 +1,14 @@
+.listOfQuestions {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: stretch;
+}
+
+.question {
+  background-color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  padding: 5px 10px;
+}
