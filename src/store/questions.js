@@ -1,6 +1,6 @@
-import { acceptQuestion, createQuestion, rejectQuestion } from "./question";
-import { reducer as questionReducer, getQuestionScore } from "./question";
-import { add, compareDesc, isBefore, isEqual, set } from "date-fns";
+import { acceptQuestion, createQuestion, rejectQuestion } from './question';
+import { reducer as questionReducer, getQuestionScore } from './question';
+import { add, compareDesc, isBefore, isEqual, set } from 'date-fns';
 
 const filter = {
   byStatus:
@@ -40,7 +40,7 @@ export const calculateScore = (state) => {
 export const calculateCurrentStreak = (state) => {
   // eslint-disable-next-line no-unused-vars
   const [_, streak] = Object.values(state)
-    .filter(filter.byStatus("Rejected"))
+    .filter(filter.byStatus('Rejected'))
     .sort(sort.byTimestamp)
     .reduce(
       ([date, streak], question) => {

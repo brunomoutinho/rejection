@@ -1,11 +1,11 @@
-import pipe from "lodash/fp/pipe";
+import pipe from 'lodash/fp/pipe';
 
 const formatQuestion = ({ timestamp, ...rest }) => ({
   ...rest,
   timestamp: new Date(timestamp),
 });
 
-const key = "rejection_state";
+const key = 'rejection_state';
 
 export const getSavedState = () => {
   try {

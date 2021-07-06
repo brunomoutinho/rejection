@@ -26,12 +26,6 @@
     "test-rw": "riteway -r @babel/register 'src/components/**/*.test.js'",
     "eject": "react-scripts eject"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -51,5 +45,11 @@
     "@babel/preset-react": "^7.13.13",
     "@babel/register": "^7.13.16",
     "riteway": "^6.2.1"
+  },
+  "prettier": {
+    "semi": true,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "useTabs": false
   }
 }

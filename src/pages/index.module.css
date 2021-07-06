@@ -2,10 +2,10 @@
   display: grid;
   gap: 20px;
   grid-template:
-    "header" 50px
-    "form" 170px
-    "list" auto
-    "score-board" 50px;
+    'header' 50px
+    'form' 170px
+    'list' auto
+    'score-board' 50px;
   height: 100vh;
   padding: 10px;
 }

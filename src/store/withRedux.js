@@ -1,6 +1,6 @@
-import React from "react";
-import { Provider } from "react-redux";
-import { configure } from "./configure.js";
+import React from 'react';
+import { Provider } from 'react-redux';
+import { configure } from './configure.js';
 
 export const withRedux = (Component) => (props) => {
   const store = configure();

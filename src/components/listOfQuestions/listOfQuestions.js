@@ -1,7 +1,7 @@
-import React from "react";
-import { Question } from "./question.js";
+import React from 'react';
+import { Question } from './question.js';
 
-import styles from "./index.module.css";
+import styles from './index.module.css';
 
 export const ListOfQuestions = ({
   questions = [],

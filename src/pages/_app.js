@@ -1,5 +1,5 @@
-import React from "react";
-import "./App.css";
+import React from 'react';
+import './App.css';
 
 // This default export is required in a new `pages/_app.js` file.
 export default function App({ Component, pageProps }) {
