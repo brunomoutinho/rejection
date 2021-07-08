@@ -1,19 +1,6 @@
 import cuid from 'cuid';
 import { set } from 'date-fns';
 
-export const reducer = (state, action) => {
-  switch (action.type) {
-    case createQuestion.type:
-      return { ...action.payload };
-    case rejectQuestion.type:
-      return { ...state, status: 'Rejected' };
-    case acceptQuestion.type:
-      return { ...state, status: 'Accepted' };
-    default:
-      return state;
-  }
-};
-
 export const createQuestion = ({
   id = cuid(),
   timestamp = set(new Date(), {
@@ -48,6 +35,19 @@ export const acceptQuestion = (id) => ({
   payload: { id },
 });
 acceptQuestion.type = 'ACCEPT_QUESTION';
+
+export const reducer = (state, action) => {
+  switch (action.type) {
+    case createQuestion.type:
+      return { ...action.payload };
+    case rejectQuestion.type:
+      return { ...state, status: 'Rejected' };
+    case acceptQuestion.type:
+      return { ...state, status: 'Accepted' };
+    default:
+      return state;
+  }
+};
 
 export const getQuestionScore = (question) =>
   question.status === 'Rejected' ? 10 : question.status === 'Accepted' ? 1 : 0;
