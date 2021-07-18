@@ -7,7 +7,7 @@ const generateStoreState = ({ questions = {} } = {}) => ({
   questions,
 });
 
-test('Default application state is an object', () => {
+test('Default application state', () => {
   const actual = reducer();
   const expected = generateStoreState();
 
