@@ -1,14 +1,22 @@
 import { add, set } from 'date-fns';
+import { STATUS_IDLE } from './controllers';
 
 import { reducer, getCurrentStreak, getQuestionsList, getScore } from './index';
 import { createQuestion, rejectQuestion, acceptQuestion } from './question';
 
-const generateStoreState = ({ questions = {} } = {}) => ({
+const generateStoreState = ({
+  questions = {},
+  controllers = { status: STATUS_IDLE },
+} = {}) => ({
   questions,
+  controllers: {
+    ...controllers,
+    payload: { type: 'empty' },
+  },
 });
 
 test('Default application state', () => {
-  const actual = reducer();
+  const actual = reducer(undefined, undefined);
   const expected = generateStoreState();
 
   expect(actual).toStrictEqual(expected);
