@@ -6,9 +6,11 @@ import {
   calculateCurrentStreak,
   calculateScore,
 } from './questions';
+import { fetchController } from './controllers';
 
 export const reducer = combineReducers({
   questions: questionsReducer,
+  controllers: fetchController.reducer,
 });
 
 export const getQuestionsList = (state) => getAsList(state.questions);
