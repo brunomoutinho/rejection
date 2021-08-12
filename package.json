@@ -46,7 +46,7 @@
     "@babel/preset-env": "^7.14.4",
     "@babel/preset-react": "^7.13.13",
     "@babel/register": "^7.13.16",
-    "riteway": "^6.2.1"
+    "riteway": "^6.3.1"
   },
   "prettier": {
     "semi": true,
